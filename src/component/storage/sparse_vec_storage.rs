@@ -3,7 +3,7 @@ use crate::{
         Component,
         storage::Storage,
     },
-    Entity,
+    entity::Entity,
 };
 
 pub struct SparseVecStorage<C: Component + Clone> {
@@ -44,7 +44,7 @@ impl<C: Component> Storage<C> for SparseVecStorage<C> {
 mod test {
     use crate::{
         component::Component,
-        Entity,
+        entity::Entity,
     };
     use super::*;
 

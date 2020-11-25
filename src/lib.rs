@@ -1,10 +1,7 @@
 #[allow(dead_code)]
 pub mod component;
-
-pub struct Entity {
-    id: usize,
-}
-
+#[allow(dead_code)]
+pub mod entity;
 
 #[cfg(test)]
 mod tests {

@@ -2,7 +2,7 @@ use std::any::Any;
 
 use crate::{
     component::Component,
-    Entity,
+    entity::Entity,
 };
 
 pub mod sparse_vec_storage;

@@ -6,6 +6,8 @@ use std::{
     collections::HashMap,
 };
 
+pub use crate::entity::Entity;
+
 pub mod storage;
 use storage::Storage;
 
