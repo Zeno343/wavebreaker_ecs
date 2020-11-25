@@ -39,10 +39,10 @@ impl ComponentManager {
             Some(probably_storage) => {
                 match probably_storage.downcast_mut::<<C as Component>::Storage>() {
                     Some(storage) => storage,
-                    None => unreachable!(),
+                    None => panic!(),
                 }
             }
-            None => unreachable!(),
+            None => panic!(),
         }
     }
 
@@ -59,11 +59,23 @@ impl ComponentManager {
             Some(probably_storage) => {
                 match probably_storage.downcast_mut::<<C as Component>::Storage>() {
                     Some(storage) => storage,
-                    None => unreachable!(),
+                    None => panic!(),
                 }
             }
-            None => unreachable!(),
+            None => panic!(),
         }
+    }
+
+    fn get<C: Component>(&mut self, entity: &Entity) -> Option<&C> {
+        let storage = self.read_storage::<C>();
+
+        storage.read(entity)
+    }
+
+    fn get_mut<C: Component>(&mut self, entity: &Entity) -> Option<&mut C> {
+        let storage = self.write_storage::<C>();
+
+        storage.write(entity)
     }
 }
 
