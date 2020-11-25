@@ -4,10 +4,6 @@ use std::{
         TypeId,
     },
     collections::HashMap,
-    ops::{
-        Index,
-        IndexMut,
-    },
 };
 
 use crate::Entity;
@@ -134,7 +130,7 @@ mod test {
     }
 
     #[test]
-    fn sparse_storage_insert() {
+    fn insert() {
         let mut colors = SparseVecStorage::new();
 
         let entity = Entity{ id: 0 };
@@ -144,7 +140,7 @@ mod test {
     }
 
     #[test]
-    fn sparse_storage_insert_non_contiguous() {
+    fn insert_non_contiguous() {
         let mut colors = SparseVecStorage::new();
 
         let entity1 = Entity{ id: 0 };
