@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 pub mod component;
 
-struct Entity {
+pub struct Entity {
     id: usize,
 }
 
