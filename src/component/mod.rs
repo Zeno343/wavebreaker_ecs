@@ -55,9 +55,9 @@ impl ComponentManager {
             self.storages.insert(type_id, Box::new(new_storage));
         }
 
-        match self.storages.get_mut(&type_id) {
+        match self.storages.get(&type_id) {
             Some(probably_storage) => {
-                match probably_storage.downcast_mut::<<C as Component>::Storage>() {
+                match probably_storage.downcast_ref::<<C as Component>::Storage>() {
                     Some(storage) => storage,
                     None => panic!(),
                 }
