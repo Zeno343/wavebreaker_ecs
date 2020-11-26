@@ -4,6 +4,8 @@ pub mod component;
 pub mod entity;
 #[allow(dead_code)]
 pub mod resource;
+#[allow(dead_code)]
+pub mod system;
 
 use component::ComponentManager;
 use entity::EntityManager;
