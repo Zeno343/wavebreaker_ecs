@@ -10,8 +10,10 @@ pub mod system;
 use component::ComponentManager;
 use entity::EntityManager;
 use resource::{
+    Read,
     Resource,
     ResourceManager,
+    Write,
 };
 
 pub struct World {
@@ -33,11 +35,11 @@ impl World {
         self.resources.insert(resource);
     }
 
-    pub fn read_resource<R: Resource>(&mut self) -> &R {
+    pub fn read_resource<R: Resource>(&self) -> Read<R> {
         self.resources.read::<R>()
     }
 
-    pub fn write_resource<R: Resource>(&mut self) -> &mut R {
+    pub fn write_resource<R: Resource>(&self) -> Write<R> {
         self.resources.write::<R>()
     }
 }
